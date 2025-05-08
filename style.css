@@ -138,14 +138,13 @@ footer {
 }
 
 /* carrossel */
-
-.caixa-carousel{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0 20px;
+.caixa-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 20px; /* top/bottom = 10px, lados = 20px */
 }
+
      
   
     .carousel-container {

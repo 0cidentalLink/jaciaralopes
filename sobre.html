@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaciara Lopes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="menu-toggle" id="menu-toggle">
+      ☰
+    </div>
+    
+    <nav id="menu" class="hidden">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="#">Produtos</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="banner">
+     
+    <img src="jaciaralopes-banner.png" alt="banner">
+    <p>Receitas que encantam o paladar e o coração 💕</p>
+  </section>
+ <!--beneficios-->
+  <section class="sobre">
+    <h2>Sobre a Jaciara Lopes Confeitaria Artesanal</h2>
+      <p>Na Jaciara Lopes Confeitaria Artesanal, acreditamos que cada celebração merece um sabor inesquecível. Com receitas feitas à mão, ingredientes frescos e muito carinho, transformamos momentos especiais em experiências doces e encantadoras.</p>
+      <p>Oferecemos bolos personalizados para aniversários, casamentos, batizados e outras comemorações, além de cupcakes delicados, suspiros coloridos, docinhos caseiros e salgados artesanais — tudo preparado com atenção aos detalhes, desde o sabor até a apresentação.</p>
+      <p>Seja para uma festa intimista ou um grande evento, nossa missão é criar delícias que surpreendem o paladar e aquecem o coração. Mais do que confeitaria, entregamos afeto em forma de sabor.</p>
+      <p>🎂 Doçura artesanal, feita com amor para marcar os momentos mais especiais da sua vida.</p>
+  </section>
+    
+    
+    <!--whatsapp-->
+   <div class="whatsapp-btn">
+  <a href="https://wa.me/556199967422" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" class="icon-whats">
+    Fale conosco no WhatsApp
+  </a>
+</div>
+ 
+
+  <footer>
+    <p>&copy; 2025 Jaciara lopes. Todos os direitos reservados.</p>
+  </footer>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // MENU
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("nav");
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("hidden");
+    });
+
+    // CARROSSEL (verifica se existe primeiro)
+    const carousel = document.querySelector('.carousel');
+    const indicatorsContainer = document.getElementById('indicators');
+    const slides = document.querySelectorAll('.carousel li');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    if (carousel && indicatorsContainer && slides.length > 0) {
+      // Criar indicadores
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('indicator');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        indicatorsContainer.appendChild(dot);
+      }
+
+      function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        document.querySelectorAll('.indicator').forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      }
+
+      function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+      }
+
+      document.getElementById('prev')?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      });
+
+      document.getElementById('next')?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      });
+    }
+  });
+</script>
+
+      
+
+</body>
+</html>

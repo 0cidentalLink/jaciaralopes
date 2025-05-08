@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaciara Lopes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="menu-toggle" id="menu-toggle">
+      ☰
+    </div>
+    
+    <nav id="menu" class="hidden">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="#">Produtos</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="banner">
+     
+    <img src="jaciaralopes-banner.png" alt="banner">
+    <p>Receitas que encantam o paladar e o coração 💕</p>
+  </section>
+ <!--beneficios-->
+  <section class="beneficios">
+    <h2>Feitos com Amor de Verdade</h2>
+    <p>Nossos doces são preparados com ingredientes selecionados e aquele toque caseiro que derrete corações. Aqui é sabor com alma!</p>
+      
+       <h2>Sabor que Encanta a Primeira Mordida</h2>
+    <p>Cada receita é testada até ficar perfeita. Não é só gostoso é inesquecível. Experimente e sinta a diferença!</p>
+      
+      <h2>Personalizados do Jeito que Você Sonhar</h2>
+      <p>Seja um bolo de aniversário, cupcakes ou Salgados,a gente transforma seu pedido em arte comestível!</p>
+  </section>
+    
+    <!--Carousel-container-->
+    <div class="caixa-carousel">
+<section class="carousel-container">
+    <ul class="carousel">
+       <li><a href="#"><img src="11.png" alt="imagem"></a></li>
+       <li><a href="#"><img src="02.png" alt="imagem"></a></li>
+       <li><a href="#"><img src="03.png" alt="imagem"></a></li>
+       <li><a href="#"><img src="04.png" alt="imagem"></a></li>
+       <li><a href="#"><img src="05.png" alt="imagem"></a></li>
+       <li><a href="#"><img src="06.png" alt="imagem"></a></li>
+       <li><a href="#"><img src="07.png" alt="imagem"></a></li>
+       <li><a href="#"><img src="08.png" alt="imagem"></a></li>
+       <li><a href="#"><img src="09.png" alt="imagem"></a></li>
+       <li><a href="#"><img src="10.png" alt="imagem"></a></li>
+       <li><a href="#"><img src="01.png" alt="imagem"></a></li>
+      
+
+      
+    
+    
+    </ul>
+
+    <div class="buttons">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+
+    <div class="indicators" id="indicators"></div>
+  </section>
+      </div>
+    <!--whatsapp-->
+   <div class="whatsapp-btn">
+  <a href="https://wa.me/556199967422" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" class="icon-whats">
+    Fale conosco no WhatsApp
+  </a>
+</div>
+ 
+
+  <footer>
+    <p>&copy; 2025 Jaciara lopes. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const carousel = document.querySelector('.carousel');
+    const indicatorsContainer = document.getElementById('indicators');
+    const slides = document.querySelectorAll('.carousel li');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+
+    // Criar indicadores
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('span');
+      dot.classList.add('indicator');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      indicatorsContainer.appendChild(dot);
+    }
+
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+      document.querySelectorAll('.indicator').forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateCarousel();
+    }
+
+    document.getElementById('prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    });
+        document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("nav");
+
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("hidden");
+    });
+  });
+  </script>
+      
+
+</body>
+</html>
